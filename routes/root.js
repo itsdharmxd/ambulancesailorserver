@@ -10,7 +10,11 @@ const {tokenParse} =require('../parse/parse')
  * DESC : to test server
  */
 router.get('/', (req, res) => {
-    res.send({ message: "Api is working" });
+    try {
+        res.send({ message: "Api is working" });
+    } catch (e) {
+        res.send(e);
+    }
 })
 
 
