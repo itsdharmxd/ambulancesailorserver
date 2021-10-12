@@ -15,7 +15,13 @@ app.use(json())
 const port=process.env.PORT || 3000
 
 
-app.use('/',root)
+app.use('/', root)
+
+
+
+
+
+
 
 mongoose.connect(db, {
     useNewUrlParser: true,
@@ -23,7 +29,11 @@ mongoose.connect(db, {
 }).then(() => console.log("DB connected")).catch(err => console.log(err));
 
 
-
+if (process.env.NODE_ENV === 'production') {
+    app.get('*', (req, res) => {
+       res.send({message:"working generic"})
+    })
+}
 
 
 app.listen(port, () => {
