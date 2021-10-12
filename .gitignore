@@ -1,3 +1,4 @@
 /node_modules
 package-lock.json
 /configs/config_dev.js
+/messaging/seviceAccountKey.json
